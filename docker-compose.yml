@@ -11,9 +11,16 @@ services:
             - '3000:3000'
         volumes:
             - './:/home/node/app'
+        networks:
+            - crm_Networks
     mongo:
         image: 'mongo:4.0.7'
         environment:
             - MONGO_INITDB_DATABASE=crm_db
             - MONGO_INITDB_ROOT_USERNAME=sys
             - MONGO_INITDB_ROOT_PASSWORD=psw
+        networks:
+            - crm_Networks
+networks:
+    crm_Networks:
+        driver: bridge
