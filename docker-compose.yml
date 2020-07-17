@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+    node:
+        image: 'node:latest'
+        working_dir: /home/node/app
+        command:
+            - /bin/sh
+            - '-c'
+            - 'npm install && npm start'
+        ports:
+            - '3000:3000'
+        volumes:
+            - './:/home/node/app'
+    mongo:
+        image: 'mongo:4.0.7'
+        environment:
+            - MONGO_INITDB_DATABASE=crm_db
+            - MONGO_INITDB_ROOT_USERNAME=sys
+            - MONGO_INITDB_ROOT_PASSWORD=psw
