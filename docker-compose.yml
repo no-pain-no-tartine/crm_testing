@@ -3,6 +3,8 @@ services:
     node:
         image: 'node:latest'
         working_dir: /home/node/app
+        env_file:
+            - src/.env
         command:
             - /bin/sh
             - '-c'
@@ -13,12 +15,12 @@ services:
             - './:/home/node/app'
         networks:
             - crm_Networks
+        links:
+            - mongo
     mongo:
         image: 'mongo:4.0.7'
-        environment:
-            - MONGO_INITDB_DATABASE=crm_db
-            - MONGO_INITDB_ROOT_USERNAME=sys
-            - MONGO_INITDB_ROOT_PASSWORD=psw
+        ports:
+            - '27017:27017'
         networks:
             - crm_Networks
 networks:
