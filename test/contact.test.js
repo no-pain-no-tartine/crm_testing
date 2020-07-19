@@ -72,7 +72,7 @@ it(`Check if we get an error if the email address is not the right format`, func
     }).toThrow(); 
 });
 
-it(`Check if we get an error if the noPhone is under 13`, function () {
+it(`Check if we get an error if the noPhone is composed by 11 caracters`, function () {
     expect(function() { 
     new Contact({
         email: 'nour@gmail.com',
