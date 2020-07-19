@@ -92,3 +92,30 @@ it(`Check if you get an error if you don't define the tag`, function () {
     });
     }).toThrow();
 });
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+const isValid = require('../functions/user/isValid');
+
+test('Everything valid', () => {
+  expect(isValid('jon', 'jim', 'jim@jon.fr', '+3325652649', 'develop')).toBe(true);
+});
+
+test('First name not provided', () => {
+  expect(isValid(null, 'jim', 'jim@jon.fr', '+3325652649' , 'develop')).toBe(false);
+});
+
+test('Last name not provided', () => {
+  expect(isValid('jon', null, 'jim@jon.fr', '+3325652649' , 'develop')).toBe(false);
+});
+
+test('Email not provided', () => {
+  expect(isValid('jon', 'jim', null, '+3325652649' , 'develop')).toBe(false);
+});
+
+test('Email not valid', () => {
+  expect(isValid('jon', 'jim', 'jimjon.fr', '+3325652649' , 'develop')).toBe(false);
+});
+
+test('Tag not valid', () => {
+    expect(isValid('jon', 'jim', 'jimjon.fr', '+3325652649' , null)).toBe(false);
+  });
