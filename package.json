@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/no-pain-no-tartine/crm_testing#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
     "jest": "^26.1.0",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.24",
