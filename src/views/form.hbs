@@ -1,11 +1,11 @@
 <h1>{{ title }}</h1>
 <div id="cont">
-  <form action="/{{ action }}" method="post">
-    <input type="text" name="firstName" placeholder="Nom">
-    <input type="text" name="lastName" placeholder="Prénom">
-    <input type="text" name="email" placeholder="Email">
-    <input type="text" name="noPhone" placeholder="N° de téléphone">
-    <input type="text" name="tag" placeholder="Tag">
+  <form action="/{{ action }} {{#if id}} /{{id}} {{/if}}" method="post">
+    <input type="text" value="{{#if contact}} {{contact.firstName}} {{/if}}" name="firstName" placeholder="Nom">
+    <input type="text" value="{{#if contact}} {{contact.lastName}} {{/if}}" name="lastName" placeholder="Prénom">
+    <input type="text" value="{{#if contact}} {{contact.email}} {{/if}}" name="email" placeholder="Email">
+    <input type="text" value="{{#if contact}} {{contact.noPhone}} {{/if}}" name="noPhone" placeholder="N° de téléphone">
+    <input type="text" value="{{#if contact}} {{contact.tag}} {{/if}}" name="tag" placeholder="Tag">
     <input type="submit" value="Valider">
   </form>
   </div>
