@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+};
+
+#cont {
+    height: 80vh;
+    width: 60vw;
+    background: rgb(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+#cont ul {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#cont li {
+    width: calc(100% - 10px);
+    padding: 10px;
+}
