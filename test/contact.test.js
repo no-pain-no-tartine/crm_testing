@@ -11,7 +11,7 @@ it(`Checks if the Contact and his validator have been called once`, function () 
         email: 'nour@gmail.com',
         lastName: 'HANNAFI',
         firstName: 'Nour',
-        noPhone: +3325652649,
+        noPhone: '+3325652649',
         tag: 'developer'
     });
 
@@ -23,7 +23,7 @@ it(`Check if a Contact is created with good parameters`, function () {
         email: 'nour@gmail.com',
         lastName: 'HANNAFI',
         firstName: 'Nour',
-        noPhone: +3325652649,
+        noPhone: '+3325652649',
         tag: 'developer'
     });
 
@@ -42,7 +42,7 @@ it(`Check if you get an error if you don't define the last name`, function () {
     new Contact({
         email: 'nour@gmail.com',
         firstName: 'Nour',
-        noPhone: +3325652649,
+        noPhone: '+3325652649',
         tag:'developer'
     });
     }).toThrowError(); 
@@ -53,7 +53,7 @@ it(`Check if you get an error if you don't define the first name`, function () {
         new Contact({
             email: 'nour@gmail.com',
             lastName: 'HANNAFI',
-            noPhone: +3325652649,
+            noPhone: '+3325652649',
             tag:'developer'
     });
     }).toThrow();
@@ -66,7 +66,7 @@ it(`Check if we get an error if the email address is not the right format`, func
             email: 'nourtata',
             firstName: 'Nour',
             lastName: 'HANNAFI',
-            noPhone: +3325652649,
+            noPhone: '+3325652649',
             tag:'developer'
     });
     }).toThrow(); 
@@ -88,7 +88,7 @@ it(`Check if you get an error if you don't define the tag`, function () {
             email: 'nour@gmail.com',
             firstName: 'Nour',
             lastName: 'HANNAFI',
-            noPhone: +3325652649
+            noPhone: '+3325652649'
     });
     }).toThrow();
 });
