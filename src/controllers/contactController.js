@@ -11,14 +11,20 @@ exports.listContact = (req, res) => {
             res.json({message: "Server Error."});
         } else {
             res.status(200);
-            res.json(listContact);
+            res.render('list', {
+                list: listContact
+            });
         }
     });
 }
 
 exports.createContact = (req, res) => { 
     const validation = validation(req.body);
-    if(validation.isError) return res.status(400).json({error: validation.message});
+    if(validation.isError) {
+        res.render('list', {
+            action: 'create'
+        });
+    }
 
     const newContact = new contact ({
         firstName: req.body.firstName,

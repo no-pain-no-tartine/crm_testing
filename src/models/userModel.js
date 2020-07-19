@@ -16,7 +16,7 @@ let contact = new schema (
             required: 'Email is required'
         },
         noPhone:  {
-            type: Number
+            type: String
         },
         tag: {
             type: String,
