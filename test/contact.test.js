@@ -86,6 +86,7 @@ it(`Check if you get an error if you don't define the tag`, function () {
     expect(function() {
         new Contact({
             email: 'nour@gmail.com',
+            firstName: 'Nour',
             lastName: 'HANNAFI',
             noPhone: +3325652649
     });
