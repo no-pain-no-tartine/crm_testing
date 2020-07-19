@@ -4,7 +4,10 @@ const express = require('express');
 const contactRoute = require('./routes/contactRoute');
 const handlebars = require('express-handlebars');
 var path = require('path');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://' + process.env.DB_CONTAINER + '/' + process.env.DB_NAME, { useNewUrlParser: true })
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -13,6 +16,9 @@ db.once('open', function() {
 });
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cors());
 
 app.set('views', path.join(__dirname, 'views/'));
 app.set('view engine', 'hbs');

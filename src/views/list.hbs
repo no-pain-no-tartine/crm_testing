@@ -2,7 +2,11 @@
 <div id="cont">
   <ul>
     {{#each list}}
-      <li>{{this}}</li>
+      <li>{{this.firstName}} {{this.lastName}} | {{this.email}} | {{this.noPhone}} | {{this.tag}}
+        <a href="/update/{{ this._id }}">Editer</a>
+        <a href="/delete/{{ this._id }}">Supprimer</a>
+      </li>
     {{/each}}
   </ul>
+  <a href="/create">Ajouter un contact</a>
 </div>

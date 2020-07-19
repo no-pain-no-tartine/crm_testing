@@ -1,11 +1,20 @@
 <h1>{{ title }}</h1>
 <div id="cont">
   <form action="/{{ action }}" method="post">
-    <input type="text" placeholder="Nom">
-    <input type="text" placeholder="Prénom">
-    <input type="text" placeholder="Email">
-    <input type="text" placeholder="N° de téléphone">
-    <input type="text" placeholder="Tag">
+    <input type="text" name="firstName" placeholder="Nom">
+    <input type="text" name="lastName" placeholder="Prénom">
+    <input type="text" name="email" placeholder="Email">
+    <input type="text" name="noPhone" placeholder="N° de téléphone">
+    <input type="text" name="tag" placeholder="Tag">
     <input type="submit" value="Valider">
   </form>
+  </div>
+    {{#if errors}}
+      <ul>
+      {{#each errors}}
+        <li>{{this}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  </div>
 </div>

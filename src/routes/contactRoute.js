@@ -3,10 +3,11 @@ module.exports = (app) => {
     app.route('/')
         .get(contactController.listContact);
     app.route('/create')
-        .post(contactController.createContact);
-    app.route('/update')
-        .put(contactController.updateContact);
-    app.route('/:id')
-        .get(contactController.readContact)
-        .delete(contactController.deleteContact);
+        .get(contactController.createContactForm)
+        .post(contactController.createContactValid);
+    app.route('/update/:id')
+        .get(contactController.updateContactForm)
+        .post(contactController.updateContactValid);
+    app.route('/delete/:id')
+        .get(contactController.deleteContact);
 }

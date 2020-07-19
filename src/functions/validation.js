@@ -1,31 +1,34 @@
 function isValid (contact) {
-    let validation = {}
+    let validation = {};
+    let errors = {};
     validation.isError = false;
 
-    if (isNul(contact.firstName)) {
+    if ('undefined' === typeof contact.firstName) {
         validation.isError = true;
-        validation.error.firstName = 'The first name is required';
+        errors.firstName = 'The first name is required';
     }
 
-    if (isNul(contact.lastName)) {
+    if ('undefined' === typeof contact.lastName) {
         validation.isError = true;
-        validation.error.lastName = 'The last name is required';
+        errors.lastName = 'The last name is required';
     }
 
-    if (isNul(contact.email)) {
+    if ('undefined' === typeof contact.email) {
         validation.isError = true;
-        validation.error.email = 'The email is required';
+        errors.email = 'The email is required';
     }
 
     if (!validEmail(contact.email)) {
         validation.isError = true;
-        validation.error.email = 'The email isn\'t valid';
+        errors.email = 'The email isn\'t valid';
     }
 
-    if (isNul(contact.tag)) {
+    if ('undefined' === typeof contact.tag) {
         validation.isError = true;
-        validation.error.email = 'The tag is required';
+        errors.tag = 'The tag is required';
     }
+
+    validation.errors = errors;
 
     return validation;
 }
@@ -33,13 +36,6 @@ function isValid (contact) {
 function validEmail (email) {
     const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return re.test(String(email).toLowerCase());
-}
-
-function isNul (val) {
-    if (null == val) {
-        return true;
-    }
-    return false;
 }
 
 module.exports = isValid;
