@@ -1,0 +1,28 @@
+version: '3.6'
+services:
+    node:
+        image: 'node:latest'
+        working_dir: /home/node/app
+        env_file:
+            - src/.env
+        command:
+            - /bin/sh
+            - '-c'
+            - 'npm install && npm start'
+        ports:
+            - '3000:3000'
+        volumes:
+            - './:/home/node/app'
+        networks:
+            - crm_Networks
+        links:
+            - mongo
+    mongo:
+        image: 'mongo:4.0.7'
+        ports:
+            - '27017:27017'
+        networks:
+            - crm_Networks
+networks:
+    crm_Networks:
+        driver: bridge
